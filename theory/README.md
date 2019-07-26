@@ -4,39 +4,39 @@
 
 Fill out truth tables for the following expressions:
 
-1. `(A ∨ ¬B)`   (alternate: `(A || !B)`)
+1. `(A ∨ ¬B)`   (alternate: `(A || !B)`) // B(0) == B(1)
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       1
+0     1       0
+1     0       1
+1     1       1
 ```
 
-2. `(¬A ∨ B) ∧ ¬(A ∧ ¬B)`   (alternate: `(!A || B) && !(A && !B)`)
+2. `(¬A ∨ B) ∧ ¬(A ∧ ¬B)`   (alternate: `(!A || B) && !(A && !B)`) // A(0) == 1  ; B(0) == 0
 ```
 A     B     result
 -------------------
-0     0       ?
-0     1       ?
-1     0       ?
-1     1       ?
+0     0       1
+0     1       1
+1     0       0
+1     1       1
 ```
 
 3. `¬(A ∨ B) ∨ ( (A ∨ C) ∧ ¬(B ∨ ¬C) )`   (alternate: `!(A || B) || ( (A || C) && !(B || !C) )`)
-  * (Hint: Is it possible to calculate this using code?)
+  * (Hint: Is it possible to calculate this using code?) // Yes.  Key is that C will always be C. so C(0) == 0
 ```
 A     B     C     result
 -------------------------
-0     0     0       ?
-0     0     1       ?
-0     1     0       ?
-0     1     1       ?
-1     0     0       ?
-1     0     1       ?
-1     1     0       ?
-1     1     1       ?
+0     0     0       1
+0     0     1       1
+0     1     0       0
+0     1     1       0
+1     0     0       0
+1     0     1       1
+1     1     0       0
+1     1     1       0
 ```
 
 ## STRETCH GOAL
