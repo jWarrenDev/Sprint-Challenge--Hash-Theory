@@ -2,13 +2,30 @@
 #include <stdlib.h>
 #include "hashtable.h"
 #include "ex1.h"
+#include <time.h>
+
+// very similar to the two sum problem. Interesting
+// brute force attempt with 2 for loops.
 
 Answer *get_indices_of_item_weights(int *weights, int length, int limit)
 {
   HashTable *ht = create_hash_table(16);
 
-  /* YOUR CODE HERE */
+  for (int index = 0; index < length; index++) {
 
+    int weight = weights[index];
+    int key = limit - weight;
+
+    if (hash_table_retrieve(ht, weight) > -1) {
+      Answer *hashOutput = malloc(sizeof(Answer *));
+      hashOutput -> index_1 = index;
+      hashOutput -> index_2 = hash_table_retrieve(ht, weight);
+
+      return hashOutput;
+    }
+
+    hash_table_insert(ht, key, index);
+  }
   return NULL;
 }
 
@@ -24,6 +41,11 @@ void print_answer(Answer *answer)
 #ifndef TESTING
 int main(void)
 {
+     clock_t start, end;
+     double cpu_time_used;
+     
+     start = clock();
+
   // TEST 1
   int weights_1 = {9};
   Answer *answer_1 = get_indices_of_item_weights(&weights_1, 1, 9);
@@ -45,6 +67,7 @@ int main(void)
   print_answer(answer_4);  // {6, 2}
 
   return 0;
+  
 }
 
 #endif
