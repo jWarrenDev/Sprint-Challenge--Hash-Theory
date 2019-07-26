@@ -4,12 +4,40 @@
 #include "hashtable.h"
 #include "ex2.h"
 
+/*
+
+Ticket **tickets = {
+  Ticket{ source: "PIT", destination: "ORD" },
+  Ticket{ source: "XNA", destination: "CID" },
+  Ticket{ source: "SFO", destination: "BHM" },
+  Ticket{ source: "FLG", destination: "XNA" },
+  Ticket{ source: "NONE", destination: "LAX" },
+  Ticket{ source: "LAX", destination: "SFO" },
+  Ticket{ source: "CID", destination: "SLC" },
+  Ticket{ source: "ORD", destination: "NONE" },
+  Ticket{ source: "SLC", destination: "PIT" },
+  Ticket{ source: "BHM", destination: "FLG" }
+};
+
+Hints:
+ Linked Pair 
+ ith location in the route can be found by checking the hash table for the i-1th location.
+
+ANSWER IF LAX is the first city:
+
+{ "LAX", "SFO", "BHM", "FLG", "XNA", "CID", "SLC", "PIT", "ORD", "NONE" }
+ 
+ */
+
+
 char **reconstruct_trip(Ticket **tickets, int length)
 {
   HashTable *ht = create_hash_table(length);
   char **route = malloc(length * sizeof(char *));
 
-  /* YOUR CODE HERE */
+  // add ticket to hash table and the key is the city. cool
+  // 
+
 
   return route;
 }
